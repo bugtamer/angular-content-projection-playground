@@ -1,1 +1,19 @@
-<p>table works!</p>
+<table>
+
+  <thead>
+    <tr>
+      <th *ngFor="let column of columnList">
+        {{ column.path }}
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let datum of data">
+      <td *ngFor="let column of columnList">
+        {{ extract(datum, column.path) }}
+      </td>
+    </tr>
+  </tbody>
+
+</table>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TableComponent } from '../table/table.component';
 
 @Component({
   selector: 'app-table-column',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableColumnComponent implements OnInit {
 
-  constructor() { }
+  @Input() path: string = '';
+
+  constructor(private table: TableComponent) {
+    this.table.columnList.push(this);
+  }
 
   ngOnInit(): void {
   }

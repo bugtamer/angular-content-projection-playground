@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { STAFF } from './models/staff.stub';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'angular-content-projection-playground';
+  employeeList = STAFF;
 }
