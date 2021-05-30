@@ -2,8 +2,17 @@
 
   <thead>
     <tr>
-      <th *ngFor="let column of columnList">
-        {{ column.path }}
+      <th>
+        <ng-content select="app-table-column[path=id]" ></ng-content>
+      </th>
+      <th>
+        <ng-content select="app-table-column[path=name]" ></ng-content>
+      </th>
+      <th>
+        <ng-content select="app-table-column[path=surname]" ></ng-content>
+      </th>
+      <th>
+        <ng-content select="app-table-column[path=age]" ></ng-content>
       </th>
     </tr>
   </thead>
