@@ -19,9 +19,10 @@
   - [PrimeNG Table component](https://www.primefaces.org/primeng/showcase/#/table/basic)
   - [github.com/primefaces/primeng](https://github.com/primefaces/primeng)
     - See [table.ts](https://github.com/primefaces/primeng/blob/master/src/app/components/table/table.ts) from PrimeNG.
-      - See []() from this repo.
+      - See [`app.component.html`](./src/app/app.component.html) from this repo.
+      - See [`app.component.ts`](./src/app/app.component.ts) from this repo.
     - See [shared.ts](https://github.com/primefaces/primeng/blob/master/src/app/components/api/shared.ts) from PrimeNG.
-      - See [injector.directive.ts](src/app/directives/injector/injector.directive.ts) from this repo.
+      - See [`injector.directive.ts`](src/app/directives/injector/injector.directive.ts) from this repo.
 
 #### Browser's result
 
