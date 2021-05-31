@@ -4,15 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
-import { TableColumnComponent } from './components/table-column/table-column.component';
-import { TableDatumComponent } from './components/table-datum/table-datum.component';
+import { InjectorDirective } from './directives/injector/injector.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    TableColumnComponent,
-    TableDatumComponent
+    InjectorDirective
   ],
   imports: [
     BrowserModule,

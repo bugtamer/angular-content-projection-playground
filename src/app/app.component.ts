@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { STAFF } from './models/staff.stub';
+import { Employee } from './models/employee.model';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,9 @@ import { STAFF } from './models/staff.stub';
 })
 export class AppComponent {
   employeeList = STAFF;
+
+  foo(employee: Employee): void {
+    console.debug('foo()', employee);
+  }
+
 }

@@ -1,6 +1,33 @@
 <app-table [data]="employeeList">
-  <app-table-column path="id">Id</app-table-column>
-  <app-table-column path="name">Name</app-table-column>
-  <app-table-column path="surname">Surname</app-table-column>
-  <app-table-column path="age">Age</app-table-column>
+
+  <ng-template appInjector="caption">Table description</ng-template>
+
+  <ng-template appInjector="header">
+    <th>Id</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Age</th>
+    <th>foo()</th>
+  </ng-template>
+
+  <ng-template appInjector="body" let-employee>
+    <td>{{employee.id}}</td>
+    <td>
+      <a href="#">{{employee.name}}</a>
+    </td>
+    <td>{{employee.surname}}</td>
+    <td>{{employee.age}}</td>
+    <td>
+      <button type="button" (click)="foo(employee)">{{employee.name}}</button>
+    </td>
+  </ng-template>
+
+  <ng-template appInjector="footer">
+    <th>Id</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Age</th>
+    <th>foo()</th>
+  </ng-template>
+
 </app-table>

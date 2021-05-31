@@ -1,31 +1,38 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, TemplateRef, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee.model';
-import { TableColumnComponent } from 'src/app/components/table-column/table-column.component';
+import { InjectorDirective } from 'src/app/directives/injector/injector.directive';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.sass']
+  styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements AfterContentInit {
 
   @Input() data: Array<Employee> = [];
 
-  columnList: Array<TableColumnComponent> = [];
+  @ContentChildren(InjectorDirective) templateList!: QueryList<InjectorDirective>;
 
-  constructor() { }
+  captTemplateRef!: TemplateRef<any>;
+  headTemplateRef!: TemplateRef<any>;
+  bodyTemplateRef!: TemplateRef<any>;
+  footTemplateRef!: TemplateRef<any>;
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
+    this.templateBinding();
   }
 
-  extract(model: Employee, path: string) {
-    switch(path) {
-      case 'id': return model.id;
-      case 'name': return model.name;
-      case 'surname': return model.surname;
-      case 'age': return model.age;
-      default: return 'N/A'
-    }
+  private templateBinding(): void {
+    this.templateList.forEach(template => {
+      switch (template.name) {
+        case 'caption': this.captTemplateRef = template.templateRef; break;
+        case 'header':  this.headTemplateRef = template.templateRef; break;
+        case 'body':    this.bodyTemplateRef = template.templateRef; break;
+        case 'footer':  this.footTemplateRef = template.templateRef; break;
+        default:
+          throw new Error(`The template name '${template.name}' does not found.`);
+      }
+    });
   }
 
 }
