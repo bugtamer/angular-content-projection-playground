@@ -1,9 +1,12 @@
 # Angular Content Projection Playground
 
+[Check it out!](https://bugtamer.github.io/angular-content-projection-playground/)
+
 ## Table Of Content
 
 - [Original README.md](./angular.md)
 - [Github pages](./github-pages.md)
+- [Docker](./docker.md)
 - [Usage](#usage)
   - [Table Component](#table-component) - ([README.md](./src/app/components/table/README.md))
     - [Browser's result](#browser_s-result)
