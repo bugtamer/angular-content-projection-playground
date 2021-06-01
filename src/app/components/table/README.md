@@ -1,38 +1,34 @@
-# Angular Content Projection Playground
+# Table Component
 
 ## Table Of Content
 
-- [Original README.md](./angular.md)
 - [Usage](#usage)
-  - [Table Component](#table-component) - ([README.md](./src/app/components/table/README.md))
-    - [Browser's result](#browser_s-result)
-    - [Angular template excerpt](#angular-template-excerpt)
-    - [Angular classes](#angular-classes)
-    - [Content Projection Resources](#content-projection-resources)
+  - [Browser's result](#browser_s-result)
+  - [Angular template excerpt](#angular-template-excerpt)
+  - [Angular classes](#angular-classes)
+  - [Content Projection Resources](#content-projection-resources)
 
 ## Usage
-
-### Table Component
 
 - Angular 12 does not allow to use `select` attribute of `ng-content` dynamically ([1]).
 - Implementation based on PrimeNG Table component (MIT License).
   - [PrimeNG Table component](https://www.primefaces.org/primeng/showcase/#/table/basic)
   - [github.com/primefaces/primeng](https://github.com/primefaces/primeng)
     - See [table.ts](https://github.com/primefaces/primeng/blob/master/src/app/components/table/table.ts) from PrimeNG.
-      - See [`app.component.html`](./src/app/app.component.html) from this repo.
-      - See [`app.component.ts`](./src/app/app.component.ts) from this repo.
+      - See [`app.component.html`](../../src/app/app.component.html) from this repo.
+      - See [`app.component.ts`](../../src/app/app.component.ts) from this repo.
     - See [shared.ts](https://github.com/primefaces/primeng/blob/master/src/app/components/api/shared.ts) from PrimeNG.
-      - See [`injector.directive.ts`](./src/app/directives/injector/injector.directive.ts) from this repo.
+      - See [`injector.directive.ts`](../../app/directives/injector/injector.directive.ts) from this repo.
 
 #### Browser's result
 
-![Browser's result of the table component](./docs/browser-result.png "Browser's result")
+![Browser's result of the table component](../../../../docs/browser-result.png "Browser's result")
 
 #### Angular template excerpt
 
-[`app.component.html`](./src/app/app.component.html)
+[`app.component.html`](../../src/app/app.component.html)
 
-The styles of this table are in [`table.component.css`](./src/app/components/table/table.component.css). ([2])
+The styles of this table are in [`table.component.css`](../../table/table.component.css). ([2])
 
 ```html
 <app-table [data]="employeeList">
@@ -72,7 +68,7 @@ The styles of this table are in [`table.component.css`](./src/app/components/tab
 
 #### Angular classes
 
-[`app.component.ts`](./src/app/app.component.ts) (excerpt)
+[`app.component.ts`](../../src/app/app.component.ts) (excerpt)
 
 ```typescript
 ···
@@ -82,7 +78,7 @@ employeeList = STAFF;
 ···
 ```
 
-[`staff.stub.ts`](./src/app/models/staff.stub.ts)
+[`staff.stub.ts`](../../models/staff.stub.ts)
 
 ```typescript
 import { Employee } from './employee.model';
@@ -93,7 +89,7 @@ export const STAFF: Array<Employee> = [
 ];
 ```
 
-[`employee.model.ts`](./src/app/models/employee.model.ts)
+[`employee.model.ts`](../../src/app/models/employee.model.ts)
 
 ```typescript
 export class Employee {
