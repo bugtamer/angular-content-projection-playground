@@ -2,7 +2,7 @@
 
 ## Building
 
-`ng build --prod --output-path github-pages/`
+`ng build --prod --output-path docs/`
 
 ## Resources
 

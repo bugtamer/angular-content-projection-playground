@@ -22,7 +22,7 @@
 
 #### Browser's result
 
-![Browser's result of the table component](../../../../docs/browser-result.png "Browser's result")
+![Browser's result of the table component](./browser-result.png "Browser's result")
 
 #### Angular template excerpt
 
