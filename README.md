@@ -3,6 +3,7 @@
 ## Table Of Content
 
 - [Original README.md](./angular.md)
+- [Github pages](./github-pages.md)
 - [Usage](#usage)
   - [Table Component](#table-component) - ([README.md](./src/app/components/table/README.md))
     - [Browser's result](#browser_s-result)
