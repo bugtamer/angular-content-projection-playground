@@ -32,6 +32,8 @@
 
 [`app.component.html`](./src/app/app.component.html)
 
+The styles of this table are in [`table.component.css`](./src/app/components/table/table.component.css). ([2])
+
 ```html
 <app-table [data]="employeeList">
 
@@ -112,4 +114,5 @@ export class Employee {
 - [How to style ng-content](https://stackoverflow.com/questions/41090302/how-to-style-ng-content#43211075) (2021-05-31)
 - [Angular ng-content and Content Projection: A Complete Guide - How To Use ng-content To Improve Component API Design](https://blog.angular-university.io/angular-ng-content/) (2021-05-31)
 
-[1]: https://stackoverflow.com/questions/37225722/ng-content-select-bound-variable
+[1]: https://stackoverflow.com/questions/37225722/ng-content-select-bound-variable "ng-content select bound variable"
+[2]: https://stackoverflow.com/questions/41090302/ "How to style ng-content"
