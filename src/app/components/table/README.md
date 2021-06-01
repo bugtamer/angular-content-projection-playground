@@ -1,5 +1,7 @@
 # Table Component
 
+Reusable table which allows to inject arbitrary caption, header, body and footer.
+
 ## Table Of Content
 
 - [Usage](#usage)
