@@ -1,5 +1,7 @@
 # Github pages
 
+- [ ] FIXIT: Github pages not working yet.
+
 ## Building
 
 `ng build --prod --output-path docs/`
