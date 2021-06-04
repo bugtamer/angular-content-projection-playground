@@ -1,24 +1,24 @@
 <table>
 
-  <caption *ngIf="captTemplateRef">
-    <ng-container *ngTemplateOutlet="captTemplateRef"></ng-container>
+  <caption #caption>
+    <ng-container *ngTemplateOutlet="sectionTemplateRef['caption']"></ng-container>
   </caption>
 
   <thead>
-    <tr>
-      <ng-container *ngTemplateOutlet="headTemplateRef; context: {$implicit: data}"></ng-container>
+    <tr #header>
+      <ng-container *ngTemplateOutlet="sectionTemplateRef['header']; context: {$implicit: data}"></ng-container>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody #body>
     <tr *ngFor="let datum of data">
-      <ng-container *ngTemplateOutlet="bodyTemplateRef; context: {$implicit: datum}"></ng-container>
+      <ng-container *ngTemplateOutlet="sectionTemplateRef['body']; context: {$implicit: datum}"></ng-container>
     </tr>
   </tbody>
 
-  <tfoot *ngIf="footTemplateRef">
-    <tr>
-      <ng-container *ngTemplateOutlet="footTemplateRef"></ng-container>
+  <tfoot *ngIf="sectionTemplateRef['caption']">
+    <tr #footer>
+      <ng-container *ngTemplateOutlet="sectionTemplateRef['footer']"></ng-container>
     </tr>
   </tfoot>
 

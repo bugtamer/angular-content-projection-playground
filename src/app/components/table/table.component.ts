@@ -1,38 +1,40 @@
-import { Component, Input, TemplateRef, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
+import { Component, Input, AfterContentInit, AfterViewInit } from '@angular/core';
+import { ContentChildren, QueryList, ViewChild, ElementRef } from '@angular/core';
 import { Employee } from 'src/app/models/employee.model';
 import { InjectorDirective } from 'src/app/directives/injector/injector.directive';
+import { TableService } from './services/table.service';
+import { TemplateRefDictionary } from './models/template-ref-dictionary.model';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
+  providers: [TableService]
 })
-export class TableComponent implements AfterContentInit {
+export class TableComponent implements AfterContentInit, AfterViewInit {
 
   @Input() data: Array<Employee> = [];
 
-  @ContentChildren(InjectorDirective) templateList!: QueryList<InjectorDirective>;
+  @ContentChildren(InjectorDirective) injectedTemplateList!: QueryList<InjectorDirective>;
 
-  captTemplateRef!: TemplateRef<any>;
-  headTemplateRef!: TemplateRef<any>;
-  bodyTemplateRef!: TemplateRef<any>;
-  footTemplateRef!: TemplateRef<any>;
+  @ViewChild('caption') captionRef!: ElementRef;
+  @ViewChild('header')  headerRef!:  ElementRef;
+  @ViewChild('body')    bodyRef!:    ElementRef;
+  @ViewChild('footer')  footerRef!:  ElementRef;
+
+  sectionTemplateRef: TemplateRefDictionary = { };
+
+  constructor(private tableService: TableService) { }
 
   ngAfterContentInit(): void {
-    this.templateBinding();
+    this.tableService.bindInjectedTemplatesToTable(this);
   }
 
-  private templateBinding(): void {
-    this.templateList.forEach(template => {
-      switch (template.name) {
-        case 'caption': this.captTemplateRef = template.templateRef; break;
-        case 'header':  this.headTemplateRef = template.templateRef; break;
-        case 'body':    this.bodyTemplateRef = template.templateRef; break;
-        case 'footer':  this.footTemplateRef = template.templateRef; break;
-        default:
-          throw new Error(`The template name '${template.name}' does not found.`);
-      }
-    });
+  ngAfterViewInit(): void {
+    this.tableService.assertCaptionExist(this);
+    this.tableService.assertThereIsAtLeastOneHeaderColumn(this);
+    this.tableService.assertBodyHasSameColumnsThanHeader(this);
+    this.tableService.assertFooterHasSameColumnsThanHeaderWhenExist(this);
   }
 
 }
