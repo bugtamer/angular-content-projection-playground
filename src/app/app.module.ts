@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { InjectorDirective } from './directives/injector/injector.directive';
 import { SuffixDirective } from './directives/suffix/suffix.directive';
+import { DigitalRootPipe } from './pipes/digital-root.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     InjectorDirective,
-    SuffixDirective
+    SuffixDirective,
+    DigitalRootPipe
   ],
   imports: [
     BrowserModule,
