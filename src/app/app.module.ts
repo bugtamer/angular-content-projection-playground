@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { InjectorDirective } from './directives/injector/injector.directive';
+import { SuffixDirective } from './directives/suffix/suffix.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    InjectorDirective
+    InjectorDirective,
+    SuffixDirective
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <app-table [data]="employeeList">
 
-  <ng-template appInjector="caption">Table description</ng-template>
+  <ng-template appInjector="caption">Staff</ng-template>
 
   <ng-template appInjector="header">
     <th>Id</th>
@@ -8,6 +8,7 @@
     <th>Surname</th>
     <th>Age</th>
     <th>foo()</th>
+    <th>NG Directive</th>
   </ng-template>
 
   <ng-template appInjector="body" let-employee>
@@ -20,6 +21,12 @@
     <td>
       <button type="button" (click)="foo(employee)">{{employee.name}}</button>
     </td>
+    <td>
+      <label>
+        Office surface
+        <input type="text" [value]="employee.officeSurface" appSuffix="m²">
+      </label>
+    </td>
   </ng-template>
 
   <ng-template appInjector="footer">
@@ -28,6 +35,7 @@
     <th>Surname</th>
     <th>Age</th>
     <th>foo()</th>
+    <th>Directive test</th>
   </ng-template>
 
 </app-table>
