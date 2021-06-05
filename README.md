@@ -1,6 +1,6 @@
 # Angular Content Projection Playground
 
-[Check it out!](https://bugtamer.github.io/angular-content-projection-playground/)
+[Check it out!](https://bugtamer.github.io/angular-content-projection-playground/) (non working link yet)
 
 ## Table Of Content
 
