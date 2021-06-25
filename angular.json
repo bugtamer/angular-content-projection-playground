@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-content-projection-playground": {
+    "angular-playground": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-content-projection-playground",
+            "outputPath": "dist/angular-playground",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-content-projection-playground:build"
+            "browserTarget": "angular-playground:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-content-projection-playground:build:production"
+              "browserTarget": "angular-playground:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-content-projection-playground:build"
+            "browserTarget": "angular-playground:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-content-projection-playground:serve"
+            "devServerTarget": "angular-playground:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-content-projection-playground:serve:production"
+              "devServerTarget": "angular-playground:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angular-content-projection-playground"
+  "defaultProject": "angular-playground"
 }

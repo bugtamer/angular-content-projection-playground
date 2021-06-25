@@ -9,5 +9,5 @@ RUN npm run build --prod
 
 # STAGE 2
 FROM nginx:alpine
-COPY --from=BUILDING_STAGE /app/dist/angular-content-projection-playground /usr/share/nginx/html
+COPY --from=BUILDING_STAGE /app/dist/angular-playground /usr/share/nginx/html
 EXPOSE 80
