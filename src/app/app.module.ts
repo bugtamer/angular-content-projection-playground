@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
-import { InjectorDirective } from './directives/injector/injector.directive';
 import { SuffixDirective } from './directives/suffix/suffix.directive';
 import { DigitalRootPipe } from './pipes/digital-root.pipe';
 
@@ -12,7 +11,6 @@ import { DigitalRootPipe } from './pipes/digital-root.pipe';
   declarations: [
     AppComponent,
     TableComponent,
-    InjectorDirective,
     SuffixDirective,
     DigitalRootPipe
   ],

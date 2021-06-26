@@ -35,9 +35,9 @@ The styles of this table are in [`table.component.css`](./table.component.css). 
 ```html
 <app-table [data]="employeeList">
 
-  <ng-template appInjector="caption">Table description</ng-template>
+  <ng-template #TableCaption>Staff</ng-template>
 
-  <ng-template appInjector="header">
+  <ng-template #TableHeader>
     <th>Id</th>
     <th>Name</th>
     <th>Surname</th>
@@ -45,7 +45,7 @@ The styles of this table are in [`table.component.css`](./table.component.css). 
     <th>foo()</th>
   </ng-template>
 
-  <ng-template appInjector="body" let-employee>
+  <ng-template #TableBody let-employee>
     <td>{{employee.id}}</td>
     <td>
       <a href="#">{{employee.name}}</a>
@@ -57,7 +57,7 @@ The styles of this table are in [`table.component.css`](./table.component.css). 
     </td>
   </ng-template>
 
-  <ng-template appInjector="footer">
+  <ng-template #TableFooter>
     <th>Id</th>
     <th>Name</th>
     <th>Surname</th>
@@ -111,6 +111,7 @@ export class Employee {
 - [Support for Dynamic Content Projection #8563](https://github.com/angular/angular/issues/8563) (2021-05-30)
 - [How to style ng-content](https://stackoverflow.com/questions/41090302/how-to-style-ng-content#43211075) (2021-05-31)
 - [Angular ng-content and Content Projection: A Complete Guide - How To Use ng-content To Improve Component API Design](https://blog.angular-university.io/angular-ng-content/) (2021-05-31)
+- [Angular Components, Templating, and Reusability](https://www.arcanys.com/blog/angular-components-templating-and-reusability) (2021-06-26)
 
 [1]: https://stackoverflow.com/questions/37225722/ng-content-select-bound-variable "ng-content select bound variable"
 [2]: https://stackoverflow.com/questions/41090302/ "How to style ng-content"

@@ -1,8 +1,8 @@
 <app-table [data]="employeeList">
 
-  <ng-template appInjector="caption">Staff</ng-template>
+  <ng-template #TableCaption>Staff</ng-template>
 
-  <ng-template appInjector="header">
+  <ng-template #TableHeader>
     <th>Id</th>
     <th>Name</th>
     <th>Surname</th>
@@ -11,7 +11,7 @@
     <th>NG Directive</th>
   </ng-template>
 
-  <ng-template appInjector="body" let-employee>
+  <ng-template #TableBody let-employee>
     <td>{{employee.id}}</td>
     <td>
       <a href="#">{{employee.name}}</a>
@@ -29,7 +29,7 @@
     </td>
   </ng-template>
 
-  <ng-template appInjector="footer">
+  <ng-template #TableFooter>
     <th>Id</th>
     <th>Name</th>
     <th>Surname</th>

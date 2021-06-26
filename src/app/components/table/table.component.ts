@@ -1,9 +1,5 @@
-import { Component, Input, AfterContentInit, AfterViewInit } from '@angular/core';
-import { ContentChildren, QueryList, ViewChild, ElementRef } from '@angular/core';
-import { Employee } from 'src/app/models/employee.model';
-import { InjectorDirective } from 'src/app/directives/injector/injector.directive';
+import { Component, Input, AfterViewInit, ContentChild, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 import { TableService } from './services/table.service';
-import { TemplateRefDictionary } from './models/template-ref-dictionary.model';
 
 @Component({
   selector: 'app-table',
@@ -11,30 +7,27 @@ import { TemplateRefDictionary } from './models/template-ref-dictionary.model';
   styleUrls: ['./table.component.css'],
   providers: [TableService]
 })
-export class TableComponent implements AfterContentInit, AfterViewInit {
+export class TableComponent implements AfterViewInit {
 
-  @Input() data: Array<Employee> = [];
+  @Input() data: Array<object> = [];
 
-  @ContentChildren(InjectorDirective) injectedTemplateList!: QueryList<InjectorDirective>;
+  @ContentChild('TableCaption') captionTemplateRef!: TemplateRef<unknown>;
+  @ContentChild('TableHeader')  headerTemplateRef!:  TemplateRef<unknown>;
+  @ContentChild('TableBody')    bodyTemplateRef!:    TemplateRef<unknown>;
+  @ContentChild('TableFooter')  footerTemplateRef!:  TemplateRef<unknown>;
 
-  @ViewChild('caption') captionRef!: ElementRef;
-  @ViewChild('header')  headerRef!:  ElementRef;
-  @ViewChild('body')    bodyRef!:    ElementRef;
-  @ViewChild('footer')  footerRef!:  ElementRef;
-
-  sectionTemplateRef: TemplateRefDictionary = { };
+  @ViewChild('caption') captionRef!: ElementRef<HTMLElement>;
+  @ViewChild('header')  headerRef!:  ElementRef<HTMLElement>;
+  @ViewChild('body')    bodyRef!:    ElementRef<HTMLElement>;
+  @ViewChild('footer')  footerRef!:  ElementRef<HTMLElement>;
 
   constructor(private tableService: TableService) { }
 
-  ngAfterContentInit(): void {
-    this.tableService.bindInjectedTemplatesToTable(this);
-  }
-
   ngAfterViewInit(): void {
     this.tableService.assertCaptionExist(this);
-    this.tableService.assertThereIsAtLeastOneHeaderColumn(this);
-    this.tableService.assertBodyHasSameColumnsThanHeader(this);
-    this.tableService.assertFooterHasSameColumnsThanHeaderWhenExist(this);
+    this.tableService.assertHeaderExist(this);
+    this.tableService.assertBodyMatchesHeaderColumns(this);
+    this.tableService.assertFooterMatchesHeaderColumnsWhenExist(this);
   }
 
 }
