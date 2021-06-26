@@ -21,7 +21,6 @@
 ### Directives
 
 - SuffixDirective
-- InjetorDirective
 
 ### Pipes
 
