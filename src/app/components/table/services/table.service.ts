@@ -1,11 +1,14 @@
-import { Injectable, ElementRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { InputGuardService } from 'src/app/services/input-guard.service';
-import { TableComponent } from '../table.component';
 
 const CAPTION_INPUT = '<ng-template appInjector="caption"></ng-template>';
 const HEADER_INPUT  = '<ng-template appInjector="header"></ng-template>';
 const BODY_INPUT    = '<ng-template appInjector="body" let-var></ng-template>';
 const FOOTER_INPUT  = '<ng-template appInjector="footer"></ng-template>';
+
+const COLUMNS_SELECTOR_FOR_HEADER = 'th';
+const COLUMNS_SELECTOR_FOR_FOOTER = 'th';
+const COLUMNS_SELECTOR_FOR_BODY   = 'tr:nth-child(1) > td';
 
 @Injectable({
   providedIn: 'root'
@@ -14,32 +17,31 @@ export class TableService {
 
   constructor(private inputGuardService: InputGuardService) { }
 
-  assertCaptionExist(tableComponent: TableComponent) {
-    const caption = tableComponent?.captionRef?.nativeElement?.innerText;
-    this.inputGuardService.string(CAPTION_INPUT, caption);
+  assertCaptionExist(element: HTMLElement): void {
+    this.inputGuardService.string(CAPTION_INPUT, element?.innerText);
   }
 
-  assertHeaderExist(tableComponent: TableComponent) {
-    const numHeaderCols = this.countColumns(tableComponent?.headerRef, 'th');
-    this.inputGuardService.minNumber(HEADER_INPUT, numHeaderCols, 1);
+  assertHeaderExist(element: HTMLElement): void {
+    const definedHeaderColumns = this.countHtml(COLUMNS_SELECTOR_FOR_HEADER, element);
+    this.inputGuardService.minNumber(HEADER_INPUT, definedHeaderColumns, 1);
   }
 
-  assertBodyMatchesHeaderColumns(tableComponent: TableComponent) {
-    const numBodyCols   = this.countColumns(tableComponent?.bodyRef,   'tr:nth-child(1) > td');
-    const numHeaderCols = this.countColumns(tableComponent?.headerRef, 'th');
-    this.inputGuardService.expectedNumber(BODY_INPUT, numBodyCols, numHeaderCols);
+  assertBodyMatchesHeaderColumns(body: HTMLElement, header: HTMLElement): void {
+    const definedBodyColumns   = this.countHtml(COLUMNS_SELECTOR_FOR_BODY,   body);
+    const definedHeaderColumns = this.countHtml(COLUMNS_SELECTOR_FOR_HEADER, header);
+    this.inputGuardService.expectedNumber(BODY_INPUT, definedBodyColumns, definedHeaderColumns);
   }
 
-  assertFooterMatchesHeaderColumnsWhenExist(tableComponent: TableComponent) {
-    const numFooterCols = this.countColumns(tableComponent?.footerRef, 'th');
-    if (numFooterCols > 0) {
-      const numHeaderCols = this.countColumns(tableComponent?.headerRef, 'th');
-      this.inputGuardService.expectedNumber(FOOTER_INPUT, numFooterCols, numHeaderCols);
+  assertFooterMatchesHeaderColumnsWhenExist(footer: HTMLElement, header: HTMLElement): void {
+    const definedFooterColumns = this.countHtml(COLUMNS_SELECTOR_FOR_FOOTER, footer);
+    const definedHeaderColumns = this.countHtml(COLUMNS_SELECTOR_FOR_HEADER, header);
+    if (definedFooterColumns > 0) {
+      this.inputGuardService.expectedNumber(FOOTER_INPUT, definedFooterColumns, definedHeaderColumns);
     }
   }
 
-  private countColumns(sectionRef: ElementRef<any>, targetTag: string): number {
-    return (sectionRef?.nativeElement as Element)?.querySelectorAll(targetTag)?.length || 0;
+  countHtml(cssSelector: string, element: HTMLElement): number {
+    return element?.querySelectorAll(cssSelector)?.length || 0;
   }
 
 }
