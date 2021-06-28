@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { InputGuardService } from 'src/app/services/input-guard.service';
 
-const CAPTION_INPUT = '<ng-template appInjector="caption"></ng-template>';
-const HEADER_INPUT  = '<ng-template appInjector="header"></ng-template>';
-const BODY_INPUT    = '<ng-template appInjector="body" let-var></ng-template>';
-const FOOTER_INPUT  = '<ng-template appInjector="footer"></ng-template>';
+const CAPTION_INPUT = '<ng-template #tableCaption></ng-template>';
+const HEADER_INPUT  = '<ng-template #tableHeader></ng-template>';
+const BODY_INPUT    = '<ng-template #tableBody let-var></ng-template>';
+const FOOTER_INPUT  = '<ng-template #tableFooter></ng-template>';
 
 const COLUMNS_SELECTOR_FOR_HEADER = 'th';
 const COLUMNS_SELECTOR_FOR_FOOTER = 'th';
