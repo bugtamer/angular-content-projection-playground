@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InputGuardService } from 'src/app/services/input-guard.service';
+import { InputGuardService } from 'src/app/services/input-guard/input-guard.service';
 
 const CAPTION_INPUT = '<ng-template #tableCaption></ng-template>';
 const HEADER_INPUT  = '<ng-template #tableHeader></ng-template>';
