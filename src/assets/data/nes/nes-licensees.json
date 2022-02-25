@@ -1,0 +1,267 @@
+{
+  "source": {
+    "url": "http://web.archive.org/web/20151106133303/http://web.archive.org/web/20060624175107/http://www.nintendo.com/doc/nes_games.pdf"
+  },
+  "data": [
+    {
+      "id": 1,
+      "licensee": "Absolute"
+    },
+    {
+      "id": 2,
+      "licensee": "Acclaim"
+    },
+    {
+      "id": 3,
+      "licensee": "Activision"
+    },
+    {
+      "id": 4,
+      "licensee": "American Sammy"
+    },
+    {
+      "id": 5,
+      "licensee": "American Softworks"
+    },
+    {
+      "id": 6,
+      "licensee": "American Technos"
+    },
+    {
+      "id": 7,
+      "licensee": "Ascii"
+    },
+    {
+      "id": 8,
+      "licensee": "Asmik"
+    },
+    {
+      "id": 9,
+      "licensee": "Atlus Software"
+    },
+    {
+      "id": 10,
+      "licensee": "Bandai"
+    },
+    {
+      "id": 11,
+      "licensee": "Broderbund"
+    },
+    {
+      "id": 12,
+      "licensee": "Bullet Proof Software"
+    },
+    {
+      "id": 13,
+      "licensee": "Capcom"
+    },
+    {
+      "id": 14,
+      "licensee": "Culture Brain"
+    },
+    {
+      "id": 15,
+      "licensee": "Data East"
+    },
+    {
+      "id": 16,
+      "licensee": "EA Sports"
+    },
+    {
+      "id": 17,
+      "licensee": "Electro Brain"
+    },
+    {
+      "id": 18,
+      "licensee": "Electronic Arts"
+    },
+    {
+      "id": 19,
+      "licensee": "Enix"
+    },
+    {
+      "id": 20,
+      "licensee": "FCI"
+    },
+    {
+      "id": 21,
+      "licensee": "Gametek"
+    },
+    {
+      "id": 22,
+      "licensee": "Hal America"
+    },
+    {
+      "id": 23,
+      "licensee": "Hi-Tech"
+    },
+    {
+      "id": 24,
+      "licensee": "Hot-B"
+    },
+    {
+      "id": 25,
+      "licensee": "Hudson Soft"
+    },
+    {
+      "id": 26,
+      "licensee": "INTV"
+    },
+    {
+      "id": 27,
+      "licensee": "Irem"
+    },
+    {
+      "id": 28,
+      "licensee": "Jaleco"
+    },
+    {
+      "id": 29,
+      "licensee": "JVC"
+    },
+    {
+      "id": 30,
+      "licensee": "Kemco"
+    },
+    {
+      "id": 31,
+      "licensee": "Koei"
+    },
+    {
+      "id": 32,
+      "licensee": "Konami"
+    },
+    {
+      "id": 33,
+      "licensee": "LJN"
+    },
+    {
+      "id": 34,
+      "licensee": "Matchbox Toys"
+    },
+    {
+      "id": 35,
+      "licensee": "Mattel Inc."
+    },
+    {
+      "id": 36,
+      "licensee": "Meldac"
+    },
+    {
+      "id": 37,
+      "licensee": "Microprose"
+    },
+    {
+      "id": 38,
+      "licensee": "Milton Bradley"
+    },
+    {
+      "id": 39,
+      "licensee": "Mindscape"
+    },
+    {
+      "id": 40,
+      "licensee": "Namco"
+    },
+    {
+      "id": 41,
+      "licensee": "Natsume"
+    },
+    {
+      "id": 42,
+      "licensee": "Nintendo"
+    },
+    {
+      "id": 43,
+      "licensee": "NTVIC"
+    },
+    {
+      "id": 44,
+      "licensee": "Ocean"
+    },
+    {
+      "id": 45,
+      "licensee": "Parker Brothers"
+    },
+    {
+      "id": 46,
+      "licensee": "Romstar"
+    },
+    {
+      "id": 47,
+      "licensee": "Seika"
+    },
+    {
+      "id": 48,
+      "licensee": "Seta"
+    },
+    {
+      "id": 49,
+      "licensee": "SNK"
+    },
+    {
+      "id": 50,
+      "licensee": "Sofel"
+    },
+    {
+      "id": 51,
+      "licensee": "Sony Imagesoft"
+    },
+    {
+      "id": 52,
+      "licensee": "Square Soft"
+    },
+    {
+      "id": 53,
+      "licensee": "Sunsoft"
+    },
+    {
+      "id": 54,
+      "licensee": "Taito Software"
+    },
+    {
+      "id": 55,
+      "licensee": "Taxan"
+    },
+    {
+      "id": 56,
+      "licensee": "Tecmo"
+    },
+    {
+      "id": 57,
+      "licensee": "THQ"
+    },
+    {
+      "id": 58,
+      "licensee": "Titus"
+    },
+    {
+      "id": 59,
+      "licensee": "Toho"
+    },
+    {
+      "id": 60,
+      "licensee": "Tradewest"
+    },
+    {
+      "id": 61,
+      "licensee": "Triffix"
+    },
+    {
+      "id": 62,
+      "licensee": "UBI Soft"
+    },
+    {
+      "id": 63,
+      "licensee": "Ultra Soft"
+    },
+    {
+      "id": 64,
+      "licensee": "Vic Tokai"
+    },
+    {
+      "id": 65,
+      "licensee": "Virgin Interactive"
+    }
+  ]
+}

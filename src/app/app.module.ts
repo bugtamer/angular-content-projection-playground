@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { SuffixDirective } from './directives/suffix/suffix.directive';
 import { DigitalRootPipe } from './pipes/digital-root.pipe';
+import { LicenseeService } from './services/nes/licensee/licensee.service';
+import { GameService } from './services/nes/game/game.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import { DigitalRootPipe } from './pipes/digital-root.pipe';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    GameService,
+    LicenseeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
