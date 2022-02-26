@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { SuffixDirective } from './directives/suffix/suffix.directive';
 import { DigitalRootPipe } from './pipes/digital-root.pipe';
+import { UuidService } from './services/uuid/uuid.service';
 import { LicenseeService } from './services/nes/licensee/licensee.service';
 import { GameService } from './services/nes/game/game.service';
 
@@ -21,6 +22,7 @@ import { GameService } from './services/nes/game/game.service';
     AppRoutingModule
   ],
   providers: [
+    UuidService,
     GameService,
     LicenseeService,
   ],
