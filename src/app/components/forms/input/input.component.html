@@ -1,0 +1,33 @@
+<!-- LABEL -->
+
+<label [for]="uuid" [class]="labelClasses">
+  <ng-content></ng-content>
+</label>
+
+<!-- FIELD -->
+
+<input
+  [type]="type"
+  [id]="uuid"
+  [attr.name]="name"
+  [attr.formControlName]="name"
+  [formControl]="control"
+  [attr.class]="inputClasses"
+  [attr.placeholder]="placeholder"
+  [attr.min]="min"
+  [attr.max]="max"
+>
+
+<button type="button" (click)="control.reset(null)" [attr.aria-controls]="uuid" aria-label="Reset">×</button>
+
+<!-- ERRORS -->
+
+<small *ngIf="control.hasError('min')">
+  The min allowed value is {{ control.getError('min').min }}.
+  Actual value is {{ control.getError('min').actual }}
+</small>
+
+<small *ngIf="control.hasError('max')">
+  The max allowed value is {{ control.getError('max').max }}.
+  Actual value is {{ control.getError('max').actual }}
+</small>
