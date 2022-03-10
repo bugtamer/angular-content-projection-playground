@@ -1,0 +1,80 @@
+<h1>NES licensed game list</h1>
+
+
+<app-input name="rowsPerPage" type="number" [control]="rowsPerPage">Rows / page</app-input>
+
+<br><br>
+
+
+<app-input name="game" [control]="filterBy.game">Game</app-input>
+
+<br><br>
+
+
+
+<app-input type="number" name="year" [control]="filterBy.year" [min]="year.first" [max]="year.last">
+  Year
+</app-input>
+
+<br><br>
+
+
+
+<app-input type="number" name="month" [control]="filterBy.month" [min]="month.first" [max]="month.last">
+  Month
+</app-input>
+
+<br><br>
+
+<label for="licensee">Licensee</label>
+<select name="licenseeId" [formControl]="filterBy.licensee" id="licensee">
+  <option value=""></option>
+  <ng-container *ngFor="let licensee of licenseeList">
+    <option value="{{ licensee.id }}">{{ licensee.licensee }}</option>
+  </ng-container>
+</select>
+<button type="button" (click)="filterBy.licensee.reset(null)">×</button>
+<br>
+
+
+
+<ul>
+  <li>Games: {{ filteredGameList.length }}</li>
+  <li>Licensee: {{ licenseeList.length }}</li>
+</ul>
+
+
+
+<app-table [data]="filteredGameList" [rowsPerPage]="rowsPerPage.value">
+
+  <ng-template #TableCaption>NES licensed Games</ng-template>
+
+  <ng-template #TableHeader>
+    <th>Data Index</th>
+    <th>Filtered Index</th>
+    <th>Page Index</th>
+    <th>Order</th>
+    <th>Year</th>
+    <th>Month</th>
+    <th>Licensee</th>
+    <th>Title</th>
+  </ng-template>
+
+  <ng-template #TableBody let-game let-dIndex="index" let-fIndex="filteredIndex" let-pIndex="pageIndex" let-order="order">
+    <td>{{ 1 + dIndex }}</td>
+    <td>{{ 1 + fIndex }}</td>
+    <td>{{ 1 + pIndex }}</td>
+    <td>{{ order.index }}</td>
+    <td>{{ game.release.year }}</td>
+    <td>{{ game.release.month }}</td>
+
+    <td>
+      <span [title]="game.licensee">
+        {{ getLicenseeNameById(+game.licensee) }}
+      </span>
+    </td>
+
+    <td>{{ game.title }}</td>
+  </ng-template>
+
+</app-table>
