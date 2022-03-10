@@ -10,6 +10,7 @@ import { UuidService } from './services/uuid/uuid.service';
 import { LicenseeService } from './services/nes/licensee/licensee.service';
 import { GameService } from './services/nes/game/game.service';
 import { InputComponent } from './components/forms/input/input.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { InputComponent } from './components/forms/input/input.component';
     SuffixDirective,
     DigitalRootPipe,
     InputComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

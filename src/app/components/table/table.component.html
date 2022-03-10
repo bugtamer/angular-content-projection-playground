@@ -1,3 +1,17 @@
+<!-- <ng-component *ngIf="hasPagination"> -->
+
+  <app-pagination
+    [data]="data"
+    [currentPage]="3"
+    [rowsPerPage]="rowsPerPage"
+    (page)="onPageChange($event)">
+  </app-pagination>
+
+<!-- </ng-component> -->
+
+
+
+
 <table>
 
   <caption #caption>
@@ -11,8 +25,16 @@
   </thead>
 
   <tbody #body>
-    <tr *ngFor="let datum of data">
-      <ng-container *ngTemplateOutlet="bodyTemplateRef; context: {$implicit: datum}"></ng-container>
+    <tr *ngFor="let datum of filteredData; index as row">
+      <ng-container
+        *ngTemplateOutlet="bodyTemplateRef; context: {
+          $implicit: datum.item,
+          index: datum.index,
+          pageIndex: row,
+          order: datum,
+          filteredIndex: filteredIndex(row)
+        }">
+      </ng-container>
     </tr>
   </tbody>
 

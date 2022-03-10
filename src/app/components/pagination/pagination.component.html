@@ -1,0 +1,23 @@
+<ul>
+
+  <li>
+    <button type="button" (click)="goToPage(firstPage)" [disabled]="isFirstPage">{{ label.first }}</button>
+  </li>
+
+  <li>
+    <button type="button" (click)="goToPage(prevPage)" [disabled]="isFirstPage">{{ label.prev }}</button>
+  </li>
+
+  <li>
+    <button type="button" (click)="goToPage(nextPage)" [disabled]="isLastPage">{{ label.next }}</button>
+  </li>
+
+  <li>
+    <button type="button" (click)="goToPage(lastPage)" [disabled]="isLastPage">{{ label.last }}</button>
+  </li>
+
+</ul>
+
+<p>{{ currentPage }} of {{ lastPage }}</p>
+<p>Rows/page: {{ rowsPerPage }}</p>
+<p>Rows: {{ data.length }}</p>
