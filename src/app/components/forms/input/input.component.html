@@ -1,26 +1,48 @@
 <!-- LABEL -->
 
+
 <label [for]="uuid" [class]="labelClasses">
   <ng-content></ng-content>
 </label>
 
+
 <!-- FIELD -->
 
-<input
-  [type]="type"
-  [id]="uuid"
-  [attr.name]="name"
-  [attr.formControlName]="name"
-  [formControl]="control"
-  [attr.class]="inputClasses"
-  [attr.placeholder]="placeholder"
-  [attr.min]="min"
-  [attr.max]="max"
->
 
-<button type="button" (click)="control.reset(null)" [attr.aria-controls]="uuid" aria-label="Reset">×</button>
+<div class="input-container">
+  <input
+    #inputRef
+    [type]="type"
+    [id]="uuid"
+    [attr.name]="name"
+    [attr.formControlName]="name"
+    [formControl]="control"
+    [attr.class]="inputClasses"
+    [attr.placeholder]="placeholder"
+    [attr.min]="min"
+    [attr.max]="max"
+  >
+
+
+<!-- RESET BUTTON -->
+
+
+<span
+  class="input-close-button"
+  [class.input-close-button--hidden]="isResetHidden"
+  (click)="reset()"
+  (keydown.enter)="reset()"
+  (keydown.space)="reset($event)"
+  [attr.aria-controls]="uuid" aria-label="Reset"
+  title="Reset"
+  tabindex="0"
+>×</span>
+
+</div>
+
 
 <!-- ERRORS -->
+
 
 <small *ngIf="control.hasError('min')">
   The min allowed value is {{ control.getError('min').min }}.

@@ -1,7 +1,11 @@
 import { FormControl } from '@angular/forms';
-import { UuidService } from './../../../services/uuid/uuid.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { UuidService } from './../../../services/uuid/uuid.service';
+
+
+const FOCUS_OPTIONS: FocusOptions = { preventScroll: true };
+
 
 @Component({
   selector: 'app-input',
@@ -25,9 +29,32 @@ export class InputComponent implements OnInit {
 
   readonly uuid = this.uuidService.v4();
 
+
   constructor(private uuidService: UuidService) { }
+
 
   ngOnInit(): void {
   }
+
+
+  get isResetHidden(): boolean {
+    const value = this.control.value;
+    return this.control.disabled || (value === undefined) || (value === null) || (value.length === 0);
+  }
+
+
+  reset(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    this.control.reset(null);
+    this.inputRef.nativeElement.focus(FOCUS_OPTIONS);
+  }
+
+
+  // IMPLEMENTATION DETAILS
+
+
+  @ViewChild('inputRef') private inputRef!: ElementRef;
 
 }
