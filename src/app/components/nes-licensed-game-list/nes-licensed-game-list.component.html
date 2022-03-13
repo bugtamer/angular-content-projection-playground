@@ -45,7 +45,7 @@
 
 
 
-<app-table [data]="filteredGameList" [rowsPerPage]="rowsPerPage.value">
+<app-table [data]="filteredGameList" [rowsPerPage]="rowsPerPage.value || filteredGameList.length">
 
   <ng-template #TableCaption>NES licensed Games</ng-template>
 
