@@ -96,7 +96,26 @@ export class NesLicensedGameListComponent implements OnInit {
 
   private filterByGame(gameList: Array<Game>): Array<Game> {
     const gameName = this.filterBy.game.value as string;
-    return gameName ? gameList.filter(  game => game.title.includes(gameName)  ) : gameList;
+    return gameName ? gameList.filter(game => this.matcher(game.title, gameName)) : gameList;
+  }
+
+
+  private matcher(title: string, searchString: string): boolean {
+    if (title && searchString) {
+      title = title.toLocaleUpperCase();
+      let numMatches = 0;
+      let keywordList = searchString.toUpperCase().split(' ').filter(w => w.length > 0 );
+      for (const keyword of keywordList) {
+        if (keyword) {
+          const hasMatch = title.includes(keyword);
+          if (hasMatch) {
+            ++numMatches;
+          }
+        }
+      }
+      return numMatches === keywordList.length;
+    }
+    return false
   }
 
 
