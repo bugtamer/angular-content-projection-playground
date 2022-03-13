@@ -26,6 +26,8 @@ export class InputComponent implements OnInit {
   @Input() min!: number;
   @Input() max!: number;
 
+  @Input() hasResetButton: boolean = true;
+
 
   readonly uuid = this.uuidService.v4();
 
@@ -39,7 +41,7 @@ export class InputComponent implements OnInit {
 
   get isResetHidden(): boolean {
     const value = this.control.value;
-    return this.control.disabled || (value === undefined) || (value === null) || (value.length === 0);
+    return !this.hasResetButton || this.control.disabled || (value === undefined) || (value === null) || (value.length === 0);
   }
 
 
